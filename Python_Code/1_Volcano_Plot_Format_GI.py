@@ -1,10 +1,10 @@
 #Formatting file for volcano plot
 import statistics
-f_m = open ("/Users/akumar/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/EV/7_Full_Result_EV_tMCAo_Fold_Change.txt", 'w', 1)
-f_m_1 = open ("/Users/akumar/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/EV/7_Stat_EV_tMCAo_Fold_Change.txt", 'w', 1)
+f_m = open ("/Users/akumar/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/7_Full_Result_Total_GI_Fold_Change.txt", 'w', 1)
+f_m_1 = open ("/Users/akumar/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/7_Stat_Total_GI_Fold_Change.txt", 'w', 1)
 l_neg = []
 l_pos = []
-with open ("/Users/akumar/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/EV/6_Result_FDR_Corrected_EV_tMCAo_Fold_Change.txt", 'r') as expressionfile:
+with open ("/Users/akumar/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/6_Result_FDR_Corrected_Total_GI_Fold_Change.txt", 'r') as expressionfile:
     line = expressionfile.readline ()
     f_m.write (line.rstrip () + "\t" + "Regulation" + "\n")
     for line in expressionfile:
@@ -23,7 +23,7 @@ f_m_1.write ("Negative Median " + str( neg_median) + "\n")
 f_m_1.write ("Postive Median " + str (pos_median) + "\n")
 f_m_1.write ("Minimum Negative " + str (min (l_neg)) + "\n")
 f_m_1.write ("Maximum Postive " + str (max (l_pos)) + "\n")
-with open ("/Users/akumar/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/EV/6_Result_FDR_Corrected_EV_tMCAo_Fold_Change.txt", 'r') as expressionfile_1:
+with open ("/Users/akumar/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/6_Result_FDR_Corrected_Total_GI_Fold_Change.txt", 'r') as expressionfile_1:
     line_1 = expressionfile_1.readline ()
     for line_1 in expressionfile_1:
         line_list_1 = line_1.split ("\t")
