@@ -22,7 +22,7 @@ p <- p + geom_hline (aes(yintercept=-log10(0.05), linetype = "p-value 0.05", col
   scale_linetype_manual(name = "p-value cut off", values = c(2, 2), 
                         guide = guide_legend(override.aes = list(color = c("black", "#D55E00")))) ##0.00518617021 (with No Dynamics)
 p <- p + scale_color_manual(values=cbbPalette, limits = force) + theme_light()
-p <- p + scale_x_continuous(breaks = round(seq(-4, 6, by = 1),1))
+p <- p + scale_x_continuous(breaks = round(seq(-3, 4, by = 1),1))
 p <- p + scale_y_continuous(breaks = round (seq (0, 10, by = 1), 1))
 p <- p + xlab (expression (log[2]~"Fold Change")) + labs (color = "Regulation") + ylab (expression (-log[10]~(P)))
 p <- p +
