@@ -18,7 +18,7 @@ df <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Project
 p <- ggplot (data = df, aes (x = Log2FC, y = -log10(p_Value), col = Regulation, label = Label))+
   geom_point ()+ geom_text_repel(max.overlaps = Inf, show.legend  = F)
 p <- p + geom_hline (aes(yintercept=-log10(0.05), linetype = "p-value 0.05", col="black")) +
-  geom_hline (aes (yintercept=-log10(0.00013), linetype = "FDR p-value 0.05", col="#D55E00")) +
+  geom_hline (aes (yintercept=-log10(0.00023554603), linetype = "FDR p-value 0.05", col="#D55E00")) +
   scale_linetype_manual(name = "p-value cut off", values = c(2, 2), 
                         guide = guide_legend(override.aes = list(color = c("black", "#D55E00")))) ##0.00518617021 (with No Dynamics)
 p <- p + scale_color_manual(values=cbbPalette, limits = force) + theme_light()
