@@ -3,7 +3,7 @@ library(data.table)
 library(ggplot2)
 library(tidyverse)
 ### EV GI
-df_EV_GI <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/EV/7_Full_Result_EV_GI_Fold_Change.txt")
+df_EV_GI <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics_data/EV/7_Full_Result_EV_GI_Fold_Change.txt")
 df_EV_GI_Sig_Pos <- df_EV_GI[df_EV_GI$p_Value <= 0.05 & df_EV_GI$Log2FC > 0]
 df_EV_GI_Sig_Neg <- df_EV_GI[df_EV_GI$p_Value <= 0.05 & df_EV_GI$Log2FC < 0]
 df_EV_GI_Sig_Pos_FDR <- df_EV_GI[df_EV_GI$P_FDR <= 0.25 & df_EV_GI$Log2FC > 0]
@@ -12,7 +12,7 @@ EV_GI_Sig_Pos <- df_EV_GI_Sig_Pos$`Gene names`
 EV_GI_Sig_Neg <- df_EV_GI_Sig_Neg$`Gene names`
 
 ### EV tMCAo
-df_EV_tMCAo <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/EV/7_Full_Result_EV_tMCAo_Fold_Change.txt")
+df_EV_tMCAo <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics_data/EV/7_Full_Result_EV_tMCAo_Fold_Change.txt")
 df_EV_tMCAo_Sig_Pos <- df_EV_tMCAo[df_EV_tMCAo$p_Value <= 0.05 & df_EV_tMCAo$Log2FC > 0]
 df_EV_tMCAo_Sig_Neg <- df_EV_tMCAo[df_EV_tMCAo$p_Value <= 0.05 & df_EV_tMCAo$Log2FC < 0]
 df_EV_tMCAo_Sig_Pos_FDR <- df_EV_tMCAo[df_EV_tMCAo$P_FDR <= 0.25 & df_EV_tMCAo$Log2FC > 0]
@@ -62,7 +62,7 @@ p1
 ####################
 
 ### Total GI
-df_Total_GI <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/7_Full_Result_Total_GI_Fold_Change.txt")
+df_Total_GI <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics_data/Total/7_Full_Result_Total_GI_Fold_Change.txt")
 df_Total_GI_Sig_Pos <- df_Total_GI[df_Total_GI$p_Value <= 0.05 & df_Total_GI$Log2FC > 0]
 df_Total_GI_Sig_Neg <- df_Total_GI[df_Total_GI$p_Value <= 0.05 & df_Total_GI$Log2FC < 0]
 df_Total_GI_Sig_Pos_FDR <- df_Total_GI[df_Total_GI$P_FDR <= 0.05 & df_Total_GI$Log2FC > 0]
@@ -71,7 +71,7 @@ Total_GI_Sig_Pos <- df_Total_GI_Sig_Pos$`Gene names`
 Total_GI_Sig_Neg <- df_Total_GI_Sig_Neg$`Gene names`
 
 ### Total tMCAo
-df_Total_tMCAo <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/7_Full_Result_Total_tMCAo_Fold_Change.txt")
+df_Total_tMCAo <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics_data/Total/7_Full_Result_Total_tMCAo_Fold_Change.txt")
 df_Total_tMCAo_Sig_Pos <- df_Total_tMCAo[df_Total_tMCAo$p_Value <= 0.05 & df_Total_tMCAo$Log2FC > 0]
 df_Total_tMCAo_Sig_Neg <- df_Total_tMCAo[df_Total_tMCAo$p_Value <= 0.05 & df_Total_tMCAo$Log2FC < 0]
 df_Total_tMCAo_Sig_Pos_FDR <- df_Total_tMCAo[df_Total_tMCAo$P_FDR <= 0.25 & df_Total_tMCAo$Log2FC > 0]
@@ -118,12 +118,12 @@ p3 <- p3 + theme(
   axis.ticks = element_blank())
 p3
 
-##Full Pos
+##Full Pos GI
 
-venn_Pos_full <- list (EV_GI_Sig_Pos, Total_GI_Sig_Pos, EV_tMCAo_Sig_Pos, Total_tMCAo_Sig_Pos)
-p4 <- ggVennDiagram (venn_Pos_full, label_alpha = 0,category.names = c("GI-EV","GI-Total", "tMCAo-EV", "tMCAo-Total"))
-p4 <- p4 + ggplot2::scale_fill_gradient(low="blue",high = "yellow") +
-  ggtitle (expression ("Different Extent of up-regulated proteomics between GI and tMCAo in Total and EV"))
+venn_Pos_full_GI <- list (EV_GI_Sig_Pos, Total_GI_Sig_Pos)
+p4 <- ggVennDiagram (venn_Pos_full_GI, label_alpha = 0,category.names = c("GI-EV","GI-Total"))
+p4 <- p4 + ggplot2::scale_fill_gradient(low="cyan",high = "yellow") +
+  ggtitle (expression ("Different Extent of up-regulated proteomics between GI Total and EV"))
 p4 <- p4 + theme(
   plot.title = element_text(family = "serif", size=18, face = "bold"),
   axis.title.x = element_blank(),
@@ -139,6 +139,66 @@ p4 <- p4 + theme(
 p4
 
 
+##Full Pos tMCAO
+
+venn_Pos_full_tMCAO <- list (EV_tMCAo_Sig_Pos, Total_tMCAo_Sig_Pos)
+p5 <- ggVennDiagram (venn_Pos_full_tMCAO, label_alpha = 0,category.names = c("tMCAo-EV", "tMCAo-Total"))
+p5 <- p5 + ggplot2::scale_fill_gradient(low="cyan",high = "yellow") +
+  ggtitle (expression ("Different Extent of up-regulated proteomics between tMCAo in Total and EV"))
+p5 <- p5 + theme(
+  plot.title = element_text(family = "serif", size=18, face = "bold"),
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  legend.title = element_text(family = "serif", size=16),
+  legend.text = element_text(family = "serif", size=16),
+  panel.grid.major = element_blank(),
+  panel.border = element_blank(),
+  panel.background = element_blank(),
+  axis.ticks = element_blank())
+p5
+
+##Full Neg GI
+
+venn_Neg_full_GI <- list (EV_GI_Sig_Neg, Total_GI_Sig_Neg)
+p6 <- ggVennDiagram (venn_Neg_full_GI, label_alpha = 0,category.names = c("GI-EV","GI-Total"))
+p6 <- p6 + ggplot2::scale_fill_gradient(low="white",high = "red") +
+  ggtitle (expression ("Different Extent of down-regulated proteomics between GI in Total and EV"))
+p6 <- p6 + theme(
+  plot.title = element_text(family = "serif", size=18, face = "bold"),
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  legend.title = element_text(family = "serif", size=16),
+  legend.text = element_text(family = "serif", size=16),
+  panel.grid.major = element_blank(),
+  panel.border = element_blank(),
+  panel.background = element_blank(),
+  axis.ticks = element_blank())
+p6
+
+
+##Full Neg tMCAO
+
+venn_Neg_full_tMCAO <- list (EV_tMCAo_Sig_Neg, Total_tMCAo_Sig_Neg)
+p7 <- ggVennDiagram (venn_Neg_full_tMCAO, label_alpha = 0,category.names = c("tMCAo-EV", "tMCAo-Total"))
+p7 <- p7 + ggplot2::scale_fill_gradient(low="white",high = "red") +
+  ggtitle (expression ("Different Extent of down-regulated proteomics between tMCAo in Total and EV"))
+p7 <- p7 + theme(
+  plot.title = element_text(family = "serif", size=18, face = "bold"),
+  axis.title.x = element_blank(),
+  axis.title.y = element_blank(),
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  legend.title = element_text(family = "serif", size=16),
+  legend.text = element_text(family = "serif", size=16),
+  panel.grid.major = element_blank(),
+  panel.border = element_blank(),
+  panel.background = element_blank(),
+  axis.ticks = element_blank())
+p7
 
 
 ########
