@@ -13,7 +13,7 @@ write.table (df_col_data_Case, "~/Library/CloudStorage/OneDrive-UniversityofEast
 write.table (df_col_data_Control, "~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/2_Col_Values_Total_GI_Control.txt", sep = "\t", quote = FALSE, row.names = TRUE)
 
 df_col_Case <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/2_Col_Values_Total_GI_Case.txt")
-df_remove_prot_Case <- subset (df_col_Case, df_col_Case$Count==8)
+df_remove_prot_Case <- subset (df_col_Case, df_col_Case$Count==6)
 
 df_col_Control <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/2_Col_Values_Total_GI_Control.txt")
 df_remove_prot_Control <- subset (df_col_Control, df_col_Control$Count==3)
