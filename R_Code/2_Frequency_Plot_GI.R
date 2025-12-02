@@ -3,13 +3,13 @@ library(ggplot2)
 library(dplyr)
 library(ggpubr)
 
-df_Case <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/EV/2_Col_Values_EV_GI_Case.txt")
+df_Case <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/2_Col_Values_Total_GI_Case.txt")
 
 df_full_Case <- df_Case %>% count(Count)
 
 df_full_Case$Type <- "Ischemic brain"
 
-df_Control <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/EV/2_Col_Values_EV_GI_Control.txt")
+df_Control <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics data/Total/2_Col_Values_Total_GI_Control.txt")
 
 df_full_Control <- df_Control %>% count(Count)
 
@@ -22,9 +22,9 @@ p_full <- ggplot (df_full, aes (fill = Type, y = n, x = Count)) +
 
 p_full <- p_full + xlab ("Missing Count") + ylab ("Frequency") + labs (fill = "Type")
 
-p_full <- p_full + scale_y_continuous(breaks = round (seq (0, 2000, by = 200), 1))
+p_full <- p_full + scale_y_continuous(breaks = round (seq (0, 2800, by = 200), 1))
 
-p_full <- p_full + scale_x_continuous(breaks = round (seq (0, 8, by = 1), 1))
+p_full <- p_full + scale_x_continuous(breaks = round (seq (0, 6, by = 1), 1))
 
 p_full <- p_full + 
   theme (
@@ -36,5 +36,5 @@ p_full <- p_full +
     axis.line = element_line(),
     legend.title = element_text(family = "serif", size = 12),
     legend.text = element_text(family = "serif", size = 12),
-    panel.background = element_blank()) + labs (title = "EV-GI")
+    panel.background = element_blank()) + labs (title = "Total-GI")
 p_full
