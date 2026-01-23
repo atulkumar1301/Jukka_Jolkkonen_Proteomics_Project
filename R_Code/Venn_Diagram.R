@@ -6,19 +6,19 @@ library(tidyverse)
 df_EV_GI <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics_data/EV/7_Full_Result_EV_GI_Fold_Change.txt")
 df_EV_GI_Sig_Pos <- df_EV_GI[df_EV_GI$p_Value <= 0.05 & df_EV_GI$Log2FC > 0]
 df_EV_GI_Sig_Neg <- df_EV_GI[df_EV_GI$p_Value <= 0.05 & df_EV_GI$Log2FC < 0]
-df_EV_GI_Sig_Pos_FDR <- df_EV_GI[df_EV_GI$P_FDR <= 0.25 & df_EV_GI$Log2FC > 0]
-df_EV_GI_Sig_Neg_FDR <- df_EV_GI[df_EV_GI$P_FDR <= 0.25 & df_EV_GI$Log2FC < 0]
-EV_GI_Sig_Pos <- df_EV_GI_Sig_Pos$`Gene names`
-EV_GI_Sig_Neg <- df_EV_GI_Sig_Neg$`Gene names`
+df_EV_GI_Sig_Pos_FDR <- df_EV_GI[df_EV_GI$P_FDR <= 0.05 & df_EV_GI$Log2FC > 0]
+df_EV_GI_Sig_Neg_FDR <- df_EV_GI[df_EV_GI$P_FDR <= 0.05 & df_EV_GI$Log2FC < 0]
+EV_GI_Sig_Pos <- df_EV_GI_Sig_Pos_FDR$`Gene names`
+EV_GI_Sig_Neg <- df_EV_GI_Sig_Neg_FDR$`Gene names`
 
 ### EV tMCAo
 df_EV_tMCAo <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics_data/EV/7_Full_Result_EV_tMCAo_Fold_Change.txt")
 df_EV_tMCAo_Sig_Pos <- df_EV_tMCAo[df_EV_tMCAo$p_Value <= 0.05 & df_EV_tMCAo$Log2FC > 0]
 df_EV_tMCAo_Sig_Neg <- df_EV_tMCAo[df_EV_tMCAo$p_Value <= 0.05 & df_EV_tMCAo$Log2FC < 0]
-df_EV_tMCAo_Sig_Pos_FDR <- df_EV_tMCAo[df_EV_tMCAo$P_FDR <= 0.25 & df_EV_tMCAo$Log2FC > 0]
-df_EV_tMCAo_Sig_Neg_FDR <- df_EV_tMCAo[df_EV_tMCAo$P_FDR <= 0.25 & df_EV_tMCAo$Log2FC < 0]
-EV_tMCAo_Sig_Pos <- df_EV_tMCAo_Sig_Pos$`Gene names`
-EV_tMCAo_Sig_Neg <- df_EV_tMCAo_Sig_Neg$`Gene names`
+df_EV_tMCAo_Sig_Pos_FDR <- df_EV_tMCAo[df_EV_tMCAo$P_FDR <= 0.05 & df_EV_tMCAo$Log2FC > 0]
+df_EV_tMCAo_Sig_Neg_FDR <- df_EV_tMCAo[df_EV_tMCAo$P_FDR <= 0.05 & df_EV_tMCAo$Log2FC < 0]
+EV_tMCAo_Sig_Pos <- df_EV_tMCAo_Sig_Pos_FDR$`Gene names`
+EV_tMCAo_Sig_Neg <- df_EV_tMCAo_Sig_Neg_FDR$`Gene names`
 
 
 ## Positive
@@ -67,17 +67,17 @@ df_Total_GI_Sig_Pos <- df_Total_GI[df_Total_GI$p_Value <= 0.05 & df_Total_GI$Log
 df_Total_GI_Sig_Neg <- df_Total_GI[df_Total_GI$p_Value <= 0.05 & df_Total_GI$Log2FC < 0]
 df_Total_GI_Sig_Pos_FDR <- df_Total_GI[df_Total_GI$P_FDR <= 0.05 & df_Total_GI$Log2FC > 0]
 df_Total_GI_Sig_Neg_FDR <- df_Total_GI[df_Total_GI$P_FDR <= 0.05 & df_Total_GI$Log2FC < 0]
-Total_GI_Sig_Pos <- df_Total_GI_Sig_Pos$`Gene names`
-Total_GI_Sig_Neg <- df_Total_GI_Sig_Neg$`Gene names`
+Total_GI_Sig_Pos <- df_Total_GI_Sig_Pos_FDR$`Gene names`
+Total_GI_Sig_Neg <- df_Total_GI_Sig_Neg_FDR$`Gene names`
 
 ### Total tMCAo
 df_Total_tMCAo <- fread ("~/Library/CloudStorage/OneDrive-UniversityofEasternFinland/Projects/Jukka_Jolkkonen/Jolkkonen_proteomics_data/Total/7_Full_Result_Total_tMCAo_Fold_Change.txt")
 df_Total_tMCAo_Sig_Pos <- df_Total_tMCAo[df_Total_tMCAo$p_Value <= 0.05 & df_Total_tMCAo$Log2FC > 0]
 df_Total_tMCAo_Sig_Neg <- df_Total_tMCAo[df_Total_tMCAo$p_Value <= 0.05 & df_Total_tMCAo$Log2FC < 0]
-df_Total_tMCAo_Sig_Pos_FDR <- df_Total_tMCAo[df_Total_tMCAo$P_FDR <= 0.25 & df_Total_tMCAo$Log2FC > 0]
-df_Total_tMCAo_Sig_Neg_FDR <- df_Total_tMCAo[df_Total_tMCAo$P_FDR <= 0.25 & df_Total_tMCAo$Log2FC < 0]
-Total_tMCAo_Sig_Pos <- df_Total_tMCAo_Sig_Pos$`Gene names`
-Total_tMCAo_Sig_Neg <- df_Total_tMCAo_Sig_Neg$`Gene names`
+df_Total_tMCAo_Sig_Pos_FDR <- df_Total_tMCAo[df_Total_tMCAo$P_FDR <= 0.05 & df_Total_tMCAo$Log2FC > 0]
+df_Total_tMCAo_Sig_Neg_FDR <- df_Total_tMCAo[df_Total_tMCAo$P_FDR <= 0.05 & df_Total_tMCAo$Log2FC < 0]
+Total_tMCAo_Sig_Pos <- df_Total_tMCAo_Sig_Pos_FDR$`Gene names`
+Total_tMCAo_Sig_Neg <- df_Total_tMCAo_Sig_Neg_FDR$`Gene names`
 
 
 ## Positive
@@ -209,5 +209,3 @@ write.table (pos_com, file = paste0 ("Pos_Common_FDR.txt"), sep="\t", quote=FALS
 neg <- list (df_PD_AD_Sig_Neg, df_Denovo_PD_AD_Sig_Neg, df_Atypical_AD_Sig_Neg, df_PD_Sig_Neg, df_PD_Denovo_Sig_Neg, df_PSP_Sig_Neg)
 neg_com <- reduce(neg, inner_join, by = 'CHEMICAL_NAME')
 write.table (neg_com, file = paste0 ("Neg_Common_FDR.txt"), sep="\t", quote=FALSE, row.names=FALSE, col.names=TRUE)
-
-
